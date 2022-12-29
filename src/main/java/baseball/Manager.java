@@ -3,24 +3,23 @@ package baseball;
 import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
 public class Manager {
 
-    private int []number;     //random number array
-    private int []userNumber;   //user's input
-    private boolean missionComplete;        //is game done?
-    private Scanner scanner;        //user input
+    private int []number;     //random number array 랜덤 숫자
+    private int []userNumber;   //user's input  유저 입력 숫자
+    private boolean missionComplete;        //is game done? 게임이 끝나는가
+    private Scanner scanner;        //user input scanner 유저 입력 scanner
 
     Manager()       //constructor
     {
         System.out.println("숫자 야구 게임을 시작합니다.");     //opening message
-        number = new int[3];        //create number array
-        userNumber = new int[3];    //create userNumber
+        number = new int[3];        //create number array   배열생성
+        userNumber = new int[3];    //create userNumber     배열생성
         missionComplete = false;    //now playing
-        scanner = new Scanner(System.in);   //user input
+        scanner = new Scanner(System.in);   //user input    스캐너생성
     }
 
     private void makeNumber()       //create number
@@ -32,12 +31,8 @@ public class Manager {
                 computer.add(randomNumber);
             }
         }
-        setNumber(computer);        //setNumber
-
-        /*for(int i = 0;i<3;i++)
-        {
-            System.out.println(number[i]);
-        }*/
+        //제공된 랜덤숫자
+        setNumber(computer);        //setNumber     랜덤숫자 멤버변수 set
     }
     private void setNumber(List<Integer> computer)      //setNumber
     {
@@ -50,15 +45,15 @@ public class Manager {
 
     public void gameStart()        //gameStart
     {
-        makeNumber();
-        int input;
+        makeNumber();   //init number
+        int input;      //user input number
         while (!missionComplete) {
             System.out.print("숫자를 입력해주세요 :");
             input = scanner.nextInt();
             setUserNumber(input);     //setUserNumber
-            referee();          //Ball count discrimination
-            System.out.println();
-            if(missionComplete)
+            referee();          //Ball count discrimination     볼카운트 판별
+            System.out.println();       //줄바꿈 형식
+            if(missionComplete)     //게임 종료시
             {
                 complete();
             }
@@ -93,7 +88,7 @@ public class Manager {
     private int inStrikeZone()     //is it strike?
     {
         int result = 0;
-        for(int i=0;i<3;i++)
+        for(int i=0;i<3;i++)        //숫자와 자리가 같은경우
         {
             if(userNumber[i] == number[i])
             {
@@ -110,7 +105,7 @@ public class Manager {
         for(int i=0;i<3;i++)
         {
             ballds = inCount(userNumber[i]);
-            if(userNumber[i] != number[i] && ballds)
+            if(userNumber[i] != number[i] && ballds)        //숫자는 같으나 자리는 다른경우
             {
                 result++;
             }
@@ -120,7 +115,7 @@ public class Manager {
 
     private boolean inCount(int n)       //is that index in number?
     {
-        for(int i=0;i<3;i++)
+        for(int i=0;i<3;i++)        //다른자리에 값이 있는경우
         {
             if(number[i] == n)
             {
@@ -132,7 +127,7 @@ public class Manager {
 
     private void complete()             //game done
     {
-        int restart = 0;
+        int restart = 0;        //user input
         System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임종료");
         System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
         restart = scanner.nextInt();
