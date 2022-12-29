@@ -53,7 +53,7 @@ public class Manager {
         makeNumber();
         int input;
         while (!missionComplete) {
-            System.out.println("숫자를 입력해주세요 :");
+            System.out.print("숫자를 입력해주세요 :");
             input = scanner.nextInt();
             setUserNumber(input);     //setUserNumber
             referee();          //Ball count discrimination
