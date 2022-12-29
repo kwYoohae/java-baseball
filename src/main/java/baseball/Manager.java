@@ -34,10 +34,10 @@ public class Manager {
         }
         setNumber(computer);        //setNumber
 
-        for(int i = 0;i<3;i++)
+        /*for(int i = 0;i<3;i++)
         {
             System.out.println(number[i]);
-        }
+        }*/
     }
     private void setNumber(List<Integer> computer)      //setNumber
     {
@@ -59,7 +59,7 @@ public class Manager {
             referee();          //Ball count discrimination
             if(missionComplete)
             {
-                System.out.println("게임 끝");
+                complete();
             }
         }
     }
@@ -129,5 +129,26 @@ public class Manager {
         return false;
     }
 
+    private void complete()             //game done
+    {
+        int restart = 0;
+        System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임종료");
+        System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+        restart = scanner.nextInt();
+        newGame(restart);
+    }
+
+    private void newGame(int n)          //user input 1 or 2
+    {
+        if(n == 1)
+        {
+            missionComplete = false;        //new game
+            makeNumber();                   //new number
+        }
+        else if(n == 2)
+        {
+            missionComplete = true;         //program terminate
+        }
+    }
 
 }
