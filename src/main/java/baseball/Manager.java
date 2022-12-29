@@ -57,6 +57,7 @@ public class Manager {
             input = scanner.nextInt();
             setUserNumber(input);     //setUserNumber
             referee();          //Ball count discrimination
+            System.out.println();
             if(missionComplete)
             {
                 complete();
@@ -77,12 +78,12 @@ public class Manager {
         strike = inStrikeZone();
         ball = outStrikeZone();
         if(ball != 0) {
-            System.out.println(ball+"볼 ");
+            System.out.print(ball+"볼 ");
         }
         if (strike != 0) {
-            System.out.println(strike+"스트라이크");
+            System.out.print(strike+"스트라이크");
         }if(strike == 0 && ball == 0) {
-            System.out.println("낫싱");
+            System.out.print("낫싱");
         }
         if(strike == 3) {
             missionComplete = true;
