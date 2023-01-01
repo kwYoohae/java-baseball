@@ -15,7 +15,7 @@ public class Manager {
                 this.userNumbers = numberClass.getUserNumbers();
                 int result = comparisonNumbers();
                 userNumbers.clear();
-
+                printResult(result);
                 if(result == 30)
                     break;
             }
@@ -35,5 +35,18 @@ public class Manager {
         }
 
         return strike*10 + ball;
+    }
+
+    void printResult(int result){
+        if(result == 30){
+            System.out.println("3스트라이크");
+            System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+        }
+        else if(result == 0){
+            System.out.println("낫싱");
+        }
+        else{
+            System.out.println(result%10+"볼 "+result/10+"스트라이크");
+        }
     }
 }
