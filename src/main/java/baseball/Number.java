@@ -38,7 +38,7 @@ public class Number {
             throw new IllegalArgumentException("입력받은 문자열이 3보다 길거나 짧음");
         for(int i=0; i<3; i++){
             char c = numbers.charAt(i);
-            if('0' > c || '9' < c) //숫자가 아닐 때
+            if('1' > c || '9' < c) //지정된 범위의 숫자가 아닐 때
                 throw new IllegalArgumentException("1~9 사이의 숫자가 아닌 값이 입력됨");
             if(userNumbers.contains(c-'0'))
                 throw new IllegalArgumentException("중복된 수를 입력함");
