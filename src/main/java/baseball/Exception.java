@@ -18,8 +18,8 @@ public class Exception {
     }
 
     public void judgeIsNumber(List<String> stringList){
-        for(int i = 0; i<stringList.size(); i++){
-            if(stringList.get(i).charAt(i)<'0' || stringList.get(i).charAt(i)>'9')
+        for(int i = 0; i<3; i++){
+            if(stringList.get(i).charAt(0)<'0' || stringList.get(i).charAt(0)>'9')
                 throw new IllegalArgumentException("숫자 이외의 다른 문자가 입력되었습니다.");
         }
     }
@@ -27,5 +27,11 @@ public class Exception {
     public void userNumberException(List<Integer> userNumList){
         userNumberLength(userNumList);
         rangeOfUserNumber(userNumList);
+        eachUserNumberDifferent(userNumList);
+    }
+
+    public void eachUserNumberDifferent(List<Integer> userNumList){
+        if(userNumList.get(0) == userNumList.get(1) || userNumList.get(0) == userNumList.get(2) || userNumList.get(1) == userNumList.get(2))
+            throw new IllegalArgumentException("서로 다른 3자리 수가 아닙니다.");
     }
 }
