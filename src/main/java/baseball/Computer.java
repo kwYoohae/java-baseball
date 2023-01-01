@@ -8,18 +8,20 @@ import java.util.List;
 
 public class Computer {
 
-    Print print = new Print();
     User user = new User();
-    List<Integer> userNumList = new ArrayList<>();
+    Exception exception = new Exception();
+    List<Integer> userNumList = new ArrayList<>(); // ArrayList for user's 3 numbers
+    List<Integer> randomNum = new ArrayList<>(); // ArrayList for make 3 random numbers
 
     public void start(){
-        print.printStartGame();
+        System.out.println("숫자 야구 게임을 시작합니다.");
         makeRandomNum();
         inputNum();
+        exception.userNumberException(userNumList);
     }
 
-    public void makeRandomNum(){
-        List<Integer> randomNum = new ArrayList<>(); // ArrayList for make 3 random numbers
+    public void makeRandomNum(){ // make 3 random number
+
         while (randomNum.size() < 3) {
             int randomNumber = Randoms.pickNumberInRange(1, 9);
             if (!randomNum.contains(randomNumber)) {
@@ -29,9 +31,7 @@ public class Computer {
     }
 
     public void inputNum(){
-        print.printInputNum();
+        System.out.println("숫자를 입력해주세요 : ");
         userNumList=user.getUserNumList();
-        for(int i=0; i<3; i++)
-            System.out.println(userNumList.get(i));
     }
 }

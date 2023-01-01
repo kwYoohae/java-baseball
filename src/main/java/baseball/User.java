@@ -9,7 +9,7 @@ import java.util.List;
 public class User {
     private String userNum;
     private List<Integer> userNumList = new ArrayList<>();
-
+    Exception exception = new Exception();
 
     public void setUserNum(){
         userNum= Console.readLine();
@@ -18,14 +18,16 @@ public class User {
 
     public void makeStringList(String str){
         List<String> userNumStringList = new ArrayList<>();
-        for(int i =0; i<3; i++)
+        for(int i=0; i<str.length(); i++)
             userNumStringList.add(str.substring(i, i+1));
         convertStringToInteger(userNumStringList);
     }
 
     public void convertStringToInteger(List<String> stringList){
-        for(int i=0; i<3; i++)
+        for(int i=0; i<stringList.size(); i++){
+            exception.judgeIsNumber(stringList);
             userNumList.add(Integer.parseInt(stringList.get(i)));
+        }
     }
 
     public List<Integer> getUserNumList(){
