@@ -16,8 +16,10 @@ public class Manager {
             int result = comparisonNumbers();
             userNumbers.clear();
             printResult(result);
-            if(result == 30)
+            if(result == 30) {
+                computerNumbers.clear();
                 break;
+            }
         }
     }
 
