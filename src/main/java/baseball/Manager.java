@@ -8,19 +8,16 @@ public class Manager {
     ArrayList<Integer> computerNumbers;
     ArrayList<Integer> userNumbers;
     void run(){ //game run
-        try {
-            Number numberClass = new Number(1, 9);
-            this.computerNumbers = numberClass.getComputerNumbers();
-            while(true) {
-                this.userNumbers = numberClass.getUserNumbers();
-                int result = comparisonNumbers();
-                userNumbers.clear();
-                printResult(result);
-                if(result == 30)
-                    break;
-            }
-        } catch (Exception e) {
-            //게임 종료, 게임종료시 ArrayList 초기화 필요
+        System.out.println("숫자 야구 게임을 시작합니다.");
+        Number numberClass = new Number(1, 9);
+        this.computerNumbers = numberClass.getComputerNumbers();
+        while(true) {
+            this.userNumbers = numberClass.getUserNumbers();
+            int result = comparisonNumbers();
+            userNumbers.clear();
+            printResult(result);
+            if(result == 30)
+                break;
         }
     }
 
@@ -41,6 +38,7 @@ public class Manager {
         if(result == 30){
             System.out.println("3스트라이크");
             System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+            System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요");
         }
         else if(result == 0){
             System.out.println("낫싱");
