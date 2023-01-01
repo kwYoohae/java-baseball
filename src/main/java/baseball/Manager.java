@@ -8,7 +8,6 @@ public class Manager {
     ArrayList<Integer> computerNumbers;
     ArrayList<Integer> userNumbers;
     void run(){ //game run
-        System.out.println("숫자 야구 게임을 시작합니다.");
         Number numberClass = new Number(1, 9);
         this.computerNumbers = numberClass.getComputerNumbers();
         while(true) {
