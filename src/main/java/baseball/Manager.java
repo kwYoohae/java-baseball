@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Manager {
     Manager() {
-        //manager();
+        manager();
     }
 
     public void manager() {
@@ -25,13 +25,14 @@ public class Manager {
     public void playGame(CreateNum create) {
         boolean isDone = false;
         while (!isDone) {
-            System.out.println("숫자를 입력해주세요 : ");
+            System.out.print("숫자를 입력해주세요 : ");
             create.setUser();
             Judgement judge = new Judgement(create);
             judge.countBall();
             judge.countStrike();
             judge.printCount();
             isDone = judge.isRight();
+            create.getUser().clear();
         }
     }
 
