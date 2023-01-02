@@ -17,8 +17,6 @@ public class Computer {
     public void start(){
         System.out.println("숫자 야구 게임을 시작합니다.");
         makeRandomNum();
-        inputNum();
-        exception.userNumberException(userNumList);
         judgeAnswer();
     }
 
@@ -29,37 +27,49 @@ public class Computer {
                 randomNum.add(randomNumber);
             }
         }
+        System.out.println(randomNum);
     }
 
     public void inputNum(){
-        System.out.println("숫자를 입력해주세요 : ");
+        System.out.print("숫자를 입력해주세요 : ");
         userNumList=user.getUserNumList();
     }
 
-    public void judgeBall(Integer i){
-        if(randomNum.get(i) != userNumList.get(i)) {
-
+    public void judgeBall(){
+        for(int i=0; i<3; i++) {
+            if((randomNum.get(0) == userNumList.get(i)) && 0 != i)
+                numOfBall++;
+            if((randomNum.get(1) == userNumList.get(i)) && 1 != i)
+                numOfBall++;
+            if((randomNum.get(2) == userNumList.get(i)) && 2 != i)
+                numOfBall++;
         }
+        if(numOfBall!=0)
+            System.out.print(numOfBall+"볼 ");
     }
 
-    public void judgeStrike(Integer i){
-        if(randomNum.get(i) == userNumList.get(i)) {
-            numOfStrike++;
+    public void judgeStrike(){
+        for(int i = 0; i<3; i++){
+            if(randomNum.get(i) == userNumList.get(i))
+                numOfStrike++;
         }
+        if(numOfStrike!=0)
+            System.out.println(numOfStrike+"스트라이크 ");
     }
 
-    public void judgeNothing(Integer i){
-
+    public void judgeNothing(){
+        if(numOfBall==0 && numOfStrike==0)
+            System.out.println("낫싱");
     }
 
     public void judgeAnswer(){
-        while(userNumList == randomNum){
-            System.out.println("숫자를 입력해주세요 : ");
-            for(int i = 0; i < 3; i++){
-                judgeStrike(i);
-                judgeBall(i);
-                judgeNothing(i);
-            }
+        while(userNumList != randomNum){
+            userNumList.clear();
+            inputNum();
+            exception.userNumberException(userNumList);
+            judgeBall();
+            judgeStrike();
+            judgeNothing();
         }
     }
 }
