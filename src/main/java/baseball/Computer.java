@@ -65,9 +65,10 @@ public class Computer { // class for game management
     }
 
     public void replayOrExit(){ // replay game or exit game
-        String renewOrExit;
-        renewOrExit= Console.readLine();
-        if(renewOrExit.equals("1")){
+        String replayOrExit;
+        replayOrExit= Console.readLine();
+        exception.replayOrExitNumberException(replayOrExit);
+        if(replayOrExit.equals("1")){
             initialForNew();
             randomNum.clear();
             start();

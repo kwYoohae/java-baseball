@@ -24,7 +24,7 @@ public class User { // class for user
 
     public void convertStringToInteger(List<String> stringList){ // convert user number list String to Integer
         for(int i=0; i<stringList.size(); i++){
-            exception.judgeIsNumber(stringList);
+            exception.judgeIsNumberException(stringList);
             userNumList.add(Integer.parseInt(stringList.get(i)));
         }
     }
