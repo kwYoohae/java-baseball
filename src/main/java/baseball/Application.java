@@ -33,7 +33,6 @@ public class Application {
 
     public static void check(){  //볼 스트라이크 구분
         List<Integer> computer = random();
-        System.out.println(computer);
         while(true){
             List<Integer> Input = input();
             int strike = strike(computer, Input);  //스트라이크인 경우
