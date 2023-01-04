@@ -20,13 +20,13 @@ public class Number {
         ArrayList<Integer> computerNumbers = new ArrayList<>();
 
         while(computerNumbers.size() < 3){
-            int num = pickNumberInRange(startRange, endRange);
-            if(!computerNumbers.contains(num)){
+            int num = pickNumberInRange(startRange, endRange); //extract random number between entered range
+            if(!computerNumbers.contains(num)){ //Do not save duplicate numbers
                 computerNumbers.add(num);
             }
         }
 
-        return computerNumbers;
+        return computerNumbers; //return ArrayList Non-duplicated, 3 digits in range
     }
 
     ArrayList<Integer> getUserNumbers(){ //사용자에게 1~9 사이의 서로 다른 수 입력받는 메서드

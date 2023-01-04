@@ -10,19 +10,19 @@ public class Manager {
     void run(){ //game run
         Number numberClass = new Number(1, 9);
         this.computerNumbers = numberClass.getComputerNumbers();
-        while(true) {
+        while(true) { //Manage Entire Game
             this.userNumbers = numberClass.getUserNumbers();
             int result = comparisonNumbers();
             userNumbers.clear();
             printResult(result);
-            if(result == 30) {
+            if(result == 30) { //End the game when users get all the numbers right
                 computerNumbers.clear();
                 break;
             }
         }
     }
 
-    int comparisonNumbers(){
+    int comparisonNumbers(){ //Compare the number of computers to the number you enter
         int strike = 0;
         int ball = 0;
         for(int i=0; i<3; i++){
@@ -35,13 +35,13 @@ public class Manager {
         return strike*10 + ball;
     }
 
-    void printResult(int result){
-        if(result == 30){
+    void printResult(int result){ //function that outputs a result of the game
+        if(result == 30){ //three strike
             System.out.println("3스트라이크");
             System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
             System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요");
         }
-        else if(result == 0){
+        else if(result == 0){ //no strike and no ball
             System.out.println("낫싱");
         }
         else{
