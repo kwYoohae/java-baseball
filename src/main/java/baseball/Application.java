@@ -35,7 +35,9 @@ public class Application {
     public static void check(List<Integer> computer){  //볼 스트라이크 구분
         while(true){
             List<Integer> Input = input();
+            int strike = strike(computer, Input);
 
+            break;
         }
     }
 
@@ -47,8 +49,17 @@ public class Application {
         Input.add(num/100);
         Input.add((num%100)/10);
         Input.add((num%100)%10);
-        scanner.close();
         return Input;
+    }
+
+    public static int strike(List<Integer> computer, List<Integer> input){
+        int sum = 0;
+        for(int i=0; i<3; i++){
+            if(computer.get(i)==input.get(i)){
+                sum++;
+            }
+        }
+        return sum;
     }
 
 }
