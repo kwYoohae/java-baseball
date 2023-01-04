@@ -1,13 +1,20 @@
 package baseball;
 
 import camp.nextstep.edu.missionutils.Randoms;
-
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Application {
     public static void main(String[] args) {
-        System.out.println(random());
+        List<Integer> computer = random();
+        int game = 1;
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("숫자 야구 게임을 시작합니다.");
+        while(game==1){
+            game = scanner.nextInt();
+        }
     }
 
     public static List<Integer> random() {
@@ -20,4 +27,7 @@ public class Application {
         }
         return computer;
     }
+
+
+
 }
