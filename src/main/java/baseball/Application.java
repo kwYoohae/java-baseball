@@ -35,27 +35,37 @@ public class Application {
     public static void check(List<Integer> computer){  //볼 스트라이크 구분
         while(true){
             List<Integer> Input = input();
-            int strike = strike(computer, Input);
+            int strike = strike(computer, Input);  //스트라이크인 경우
+            int ball = ball(computer, Input);      //볼인 경우
 
-            break;
         }
     }
 
-    public static List<Integer> input(){
+    public static List<Integer> input(){   //입력 받은 정수를 배열로 바꾸는 함수
         Scanner scanner = new Scanner(System.in);
         int num = scanner.nextInt();
         List<Integer> Input = new ArrayList<>();
 
-        Input.add(num/100);
-        Input.add((num%100)/10);
-        Input.add((num%100)%10);
+        Input.add(num/100);       //백의자리
+        Input.add((num%100)/10);  //십의자리
+        Input.add((num%100)%10);  //일의자리
         return Input;
     }
 
-    public static int strike(List<Integer> computer, List<Integer> input){
+    public static int strike(List<Integer> computer, List<Integer> input){  //스트라이크인 경우 세기
         int sum = 0;
         for(int i=0; i<3; i++){
-            if(computer.get(i)==input.get(i)){
+            if(computer.get(i)==input.get(i)){  //같은 위치에 같은 값이 있는가
+                sum++;
+            }
+        }
+        return sum;
+    }
+
+    public static int ball(List<Integer> computer, List<Integer> input){  //볼인 경우 세기
+        int sum = 0;
+        for(int i=0; i<3; i++){
+            if(computer.contains(input.get(i)) && computer.get(i)!=input.get(i)){   //스트라이크가 아니고 볼인 경우
                 sum++;
             }
         }
