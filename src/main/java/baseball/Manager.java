@@ -8,16 +8,20 @@ import java.util.Scanner;
 
 public class Manager {
 
-    private int []number;     //random number array 랜덤 숫자
+    //private int []number;     //random number array 랜덤 숫자
+    private List<Integer> nnumber;
     private int []userNumber;   //user's input  유저 입력 숫자
+    private List<Integer> uuserNumber;
     private boolean missionComplete;        //is game done? 게임이 끝나는가
     private Scanner scanner;        //user input scanner 유저 입력 scanner
 
     Manager()       //constructor
     {
         System.out.println("숫자 야구 게임을 시작합니다.");     //opening message
-        number = new int[3];        //create number array   배열생성
+        //number = new int[3];        //create number array   배열생성
         userNumber = new int[3];    //create userNumber     배열생성
+        nnumber = new ArrayList<>();
+        uuserNumber = new ArrayList<>();
         missionComplete = false;    //now playing
         scanner = new Scanner(System.in);   //user input    스캐너생성
     }
@@ -33,14 +37,16 @@ public class Manager {
         }
         //제공된 랜덤숫자
         setNumber(computer);        //setNumber     랜덤숫자 멤버변수 set
+        System.out.println(computer);
     }
     private void setNumber(List<Integer> computer)      //setNumber
     {
-        for (int i=0;i<3;i++)
+        /*for (int i=0;i<3;i++)
         {
             int n = Integer.parseInt(computer.get(i).toString());   // Integer to int
             this.number[i] = n;     //set number
-        }
+        }*/
+       nnumber = computer;
     }
 
     public void gameStart()        //gameStart
@@ -65,6 +71,10 @@ public class Manager {
         this.userNumber[0] = num / 100;
         this.userNumber[1] = num % 100 / 10;
         this.userNumber[2] = num % 10;
+        for(int i=0;i<3;i++)
+        {
+            uuserNumber.add(userNumber[i]);
+        }
     }
 
     public void referee()       //Ball count discrimination
@@ -90,7 +100,7 @@ public class Manager {
         int result = 0;
         for(int i=0;i<3;i++)        //숫자와 자리가 같은경우
         {
-            if(userNumber[i] == number[i])
+            if(uuserNumber.get(i) == nnumber.get(i))
             {
                 result++;
             }
@@ -105,7 +115,7 @@ public class Manager {
         for(int i=0;i<3;i++)
         {
             ballds = inCount(userNumber[i]);
-            if(userNumber[i] != number[i] && ballds)        //숫자는 같으나 자리는 다른경우
+            if(userNumber[i] != nnumber.get(i) && ballds)        //숫자는 같으나 자리는 다른경우
             {
                 result++;
             }
@@ -117,7 +127,7 @@ public class Manager {
     {
         for(int i=0;i<3;i++)        //다른자리에 값이 있는경우
         {
-            if(number[i] == n)
+            if(nnumber.get(i) == n)
             {
                 return true;
             }
