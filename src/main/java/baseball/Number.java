@@ -34,16 +34,14 @@ public class Number {
         System.out.print("숫자를 입력해주세요 : ");
         String numbers = readLine(); //get string without separator
 
-        if(numbers.length() != 3) //적게 또는 많이 입력했을 때
-            throw new IllegalArgumentException("입력받은 문자열이 3보다 길거나 짧음");
+        MyException.userNumberGetException(numbers);
+
         for(int i=0; i<3; i++){
             char c = numbers.charAt(i);
-            if('1' > c || '9' < c) //지정된 범위의 숫자가 아닐 때
-                throw new IllegalArgumentException("1~9 사이의 숫자가 아닌 값이 입력됨");
-            if(userNumbers.contains(c-'0'))
-                throw new IllegalArgumentException("중복된 수를 입력함");
+            MyException.userNumberContainException(c, userNumbers);
             userNumbers.add(c - '0');
         }
+
         return userNumbers;
     }
 }
