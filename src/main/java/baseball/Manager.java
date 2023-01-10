@@ -37,7 +37,7 @@ public class Manager {
         }
         //제공된 랜덤숫자
         setNumber(computer);        //setNumber     랜덤숫자 멤버변수 set
-        System.out.println(computer);
+        System.out.println(nnumber);
     }
     private void setNumber(List<Integer> computer)      //setNumber
     {
@@ -63,6 +63,10 @@ public class Manager {
             {
                 complete();
             }
+            else
+            {
+                empty();
+            }
         }
     }
 
@@ -75,6 +79,7 @@ public class Manager {
         {
             uuserNumber.add(userNumber[i]);
         }
+        System.out.println(uuserNumber);
     }
 
     public void referee()       //Ball count discrimination
@@ -102,7 +107,7 @@ public class Manager {
         {
             if(uuserNumber.get(i) == nnumber.get(i))
             {
-                result++;
+                result+=1;
             }
         }
         return result;
@@ -155,6 +160,14 @@ public class Manager {
         {
             missionComplete = true;         //program terminate
         }
+    }
+
+    private void empty()             //볼카운트를 맞추지 못했을 때 유저의 볼카운트 초기화
+    {
+       for (int i=2;i>=0;i--)
+       {
+           uuserNumber.remove(i);
+       }
     }
 
 }
