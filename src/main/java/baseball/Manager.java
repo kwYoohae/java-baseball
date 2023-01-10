@@ -8,20 +8,19 @@ import java.util.Scanner;
 
 public class Manager {
 
-    //private int []number;     //random number array 랜덤 숫자
-    private List<Integer> nnumber;
+
+    private List<Integer> ballCount;        //게임의 랜덤 볼카운트
     private int []userNumber;   //user's input  유저 입력 숫자
-    private List<Integer> uuserNumber;
+    private List<Integer> userCount;        //유저의 입력 카운트
     private boolean missionComplete;        //is game done? 게임이 끝나는가
     private Scanner scanner;        //user input scanner 유저 입력 scanner
 
     Manager()       //constructor
     {
         System.out.println("숫자 야구 게임을 시작합니다.");     //opening message
-        //number = new int[3];        //create number array   배열생성
         userNumber = new int[3];    //create userNumber     배열생성
-        nnumber = new ArrayList<>();
-        uuserNumber = new ArrayList<>();
+        ballCount = new ArrayList<>();
+        userCount = new ArrayList<>();
         missionComplete = false;    //now playing
         scanner = new Scanner(System.in);   //user input    스캐너생성
     }
@@ -36,17 +35,7 @@ public class Manager {
             }
         }
         //제공된 랜덤숫자
-        setNumber(computer);        //setNumber     랜덤숫자 멤버변수 set
-        System.out.println(nnumber);
-    }
-    private void setNumber(List<Integer> computer)      //setNumber
-    {
-        /*for (int i=0;i<3;i++)
-        {
-            int n = Integer.parseInt(computer.get(i).toString());   // Integer to int
-            this.number[i] = n;     //set number
-        }*/
-       nnumber = computer;
+        ballCount = computer;       //랜덤숫자를 ballCount로
     }
 
     public void gameStart()        //gameStart
@@ -59,14 +48,7 @@ public class Manager {
             setUserNumber(input);     //setUserNumber
             referee();          //Ball count discrimination     볼카운트 판별
             System.out.println();       //줄바꿈 형식
-            if(missionComplete)     //게임 종료시
-            {
-                complete();
-            }
-            else
-            {
-                empty();
-            }
+            inningDone();   //한차례 종료
         }
     }
 
@@ -77,24 +59,28 @@ public class Manager {
         this.userNumber[2] = num % 10;
         for(int i=0;i<3;i++)
         {
-            uuserNumber.add(userNumber[i]);
+            userCount.add(userNumber[i]);
         }
-        System.out.println(uuserNumber);
     }
 
-    public void referee()       //Ball count discrimination
+    public void referee()       //볼카운트 판정
     {
         int strike = 0,ball = 0;
         strike = inStrikeZone();
         ball = outStrikeZone();
+        call(ball,strike);      //스트라이크 콜
+    }
+
+    public void call(int ball, int strike)       //볼카운트 출력
+    {
         if(ball != 0) {
             System.out.print(ball+"볼 ");
         }
         if (strike != 0) {
             System.out.print(strike+"스트라이크");
         }if(strike == 0 && ball == 0) {
-            System.out.print("낫싱");
-        }
+        System.out.print("낫싱");
+    }
         if(strike == 3) {
             missionComplete = true;
         }
@@ -105,7 +91,7 @@ public class Manager {
         int result = 0;
         for(int i=0;i<3;i++)        //숫자와 자리가 같은경우
         {
-            if(uuserNumber.get(i) == nnumber.get(i))
+            if(userCount.get(i) == ballCount.get(i))
             {
                 result+=1;
             }
@@ -120,7 +106,7 @@ public class Manager {
         for(int i=0;i<3;i++)
         {
             ballds = inCount(userNumber[i]);
-            if(userNumber[i] != nnumber.get(i) && ballds)        //숫자는 같으나 자리는 다른경우
+            if(userNumber[i] != ballCount.get(i) && ballds)        //숫자는 같으나 자리는 다른경우
             {
                 result++;
             }
@@ -132,7 +118,7 @@ public class Manager {
     {
         for(int i=0;i<3;i++)        //다른자리에 값이 있는경우
         {
-            if(nnumber.get(i) == n)
+            if(ballCount.get(i) == n)
             {
                 return true;
             }
@@ -154,6 +140,7 @@ public class Manager {
         if(n == 1)
         {
             missionComplete = false;        //new game
+            empty();
             makeNumber();                   //new number
         }
         else if(n == 2)
@@ -166,8 +153,20 @@ public class Manager {
     {
        for (int i=2;i>=0;i--)
        {
-           uuserNumber.remove(i);
+           userCount.remove(i);
        }
+    }
+
+    private void inningDone()             //횟수가 끝나고 다시 진행 및 재시작 및 종료
+    {
+        if(missionComplete)     //게임 종료시
+        {
+            complete();
+        }
+        else                    //게임이 안끝나고 유저의 카운트 초기화
+        {
+            empty();
+        }
     }
 
 }
