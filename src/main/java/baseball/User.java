@@ -23,9 +23,8 @@ public class User {
         String readNum = Console.readLine();
 
         String[] num = readNum.split("");
-        List<Integer> user = new ArrayList<>();
 
-        for(int i = 0; i < num.length; i++) {
+        for(int i = 0; i < readNum.length(); i++) {
             int number = Integer.parseInt(num[i]);
             this.userNum.add(number);
         }

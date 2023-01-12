@@ -3,17 +3,26 @@ package baseball;
 import java.util.ArrayList;
 import java.util.List;
 
+import static baseball.Manager.ENDGAME;
+import static baseball.Manager.RESET;
+
 public class ExceptionCase {
 
-    public final static int USER_NUMBER_SIZE = 3;
+    public final int USER_NUMBER_SIZE = 3;
     private List<Integer> userNum = new ArrayList<>();
 
     ExceptionCase(List<Integer> userNum) {
         this.userNum = userNum;
-        isInputError();
+        isUserInputError();
     }
 
-    private void isInputError() {
+    public static void isSelectNumError(int selectNum) {
+        if(selectNum != RESET && selectNum != ENDGAME) {
+            throw new IllegalArgumentException("잘못된 입력입니다.");
+        }
+    }
+
+    private void isUserInputError() {
         wrongSize();
         duplicatedNum();
         zeroNum();

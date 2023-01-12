@@ -9,7 +9,9 @@ import java.util.Scanner;
 public class Manager {
 
     public final static int RESET = 1;
-    public final static int CORRECT = 3;
+    public final static int ENDGAME = 2;
+    public final int CORRECT = 3;
+    public final int NONE = 0;
 
     Manager() {
         startGame();
@@ -22,6 +24,9 @@ public class Manager {
         while(isAgain) {
             Computer computer = new Computer();
             playGame(computer);
+
+            System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+            System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
             isAgain = endOrReset();
         }
     }
@@ -31,22 +36,35 @@ public class Manager {
         while (!isDone) {
             User user = new User();
             Judgement judge = new Judgement(computer.getComputer(), user.getUserNum());
-            judge.printCount();
+
+            printCount(judge);
             isDone = (judge.getStrike() == CORRECT);
         }
     }
 
-    public boolean endOrReset() {
-        System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
-        System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+    public void printCount(Judgement judge) {
+        if(judge.getBall() > NONE) {
+            System.out.print(judge.getBall() + "볼 ");
+        }
+        if(judge.getStrike() > NONE) {
+            System.out.print(judge.getStrike() + "스트라이크");
+        }
+        if(judge.getBall() == NONE && judge.getStrike() == NONE) {
+            System.out.print("낫싱");
+        }
+        System.out.println();
+    }
 
+    public boolean endOrReset() {
         String select = Console.readLine();
-        String[] num = select.split("");
-        int selectNum = Integer.parseInt(num[0]);
+        int selectNum = Integer.parseInt(select);
+
+        ExceptionCase.isSelectNumError(selectNum);
 
         if(selectNum == RESET) {
             return true;
         }
         return false;
+
     }
 }

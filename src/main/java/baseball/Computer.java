@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Computer {
 
-    public final static int RANDOM_NUMBER_SIZE = 3;
+    public static int RANDOM_NUMBER_SIZE = 3;
     private List<Integer> computerNum = new ArrayList<>();
 
     Computer() {
@@ -19,7 +19,6 @@ public class Computer {
     }
 
     private void createRandomNum() {
-
         while (this.computerNum.size() < RANDOM_NUMBER_SIZE) {
             int randomNumber = Randoms.pickNumberInRange(1, 9);
 
