@@ -3,8 +3,8 @@ package baseball;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class Application {
-    public final static int GAME_RESTART = 1;
-    public final static int GAME_END = 2;
+    private final static int GAME_RESTART = 1;
+    private final static int GAME_END = 2;
 
     public static void main(String[] args) { //main
         int game = GAME_END;

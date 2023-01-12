@@ -8,8 +8,8 @@ import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
 public class Number {
 
-    int startRange = 0;
-    int endRange = 0;
+    private int startRange = 0;
+    private int endRange = 0;
 
     Number(int startRange, int endRange){
         this.startRange = startRange;
