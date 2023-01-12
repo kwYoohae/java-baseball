@@ -9,15 +9,17 @@ public class User { // class for user
 
     private String userNum;
     private List<Integer> userNumList = new ArrayList<>();
+    private List<String> userNumStringList = new ArrayList<>();
     Exception exception = new Exception();
+    String replayOrExit;
 
-    public void setUserNum() { // set user number
+    public void convertUserNum() { // set user number
+        initialize();
         userNum = Console.readLine();
         makeStringList(userNum);
     }
 
     public void makeStringList(String str) { // make user number list(String)
-        List<String> userNumStringList = new ArrayList<>();
         for (int i = 0; i < str.length(); i++)
             userNumStringList.add(str.substring(i, i + 1));
         convertStringToInteger(userNumStringList);
@@ -31,7 +33,18 @@ public class User { // class for user
     }
 
     public List<Integer> getUserNumList() { // get user number(Integer) list
-        setUserNum();
+        convertUserNum();
         return userNumList;
+    }
+
+    public String getUserReplayOrExit() {
+        replayOrExit = Console.readLine();
+        exception.replayOrExitNumberException(replayOrExit);
+        return replayOrExit;
+    }
+
+    public void initialize() {
+        userNumList.clear();
+        userNumStringList.clear();
     }
 }
