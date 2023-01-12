@@ -8,7 +8,7 @@ public class Application {
 
     public static void main(String[] args) { //main
         int game = GAME_END;
-        Manager m = new Manager();
+        GameManager m = new GameManager();
 
         System.out.println("숫자 야구 게임을 시작합니다.");
         do{

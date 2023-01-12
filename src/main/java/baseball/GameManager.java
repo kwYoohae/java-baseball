@@ -3,7 +3,7 @@ package baseball;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class Manager {
+public class GameManager {
 
     ArrayList<Integer> computerNumbers;
     ArrayList<Integer> userNumbers;
