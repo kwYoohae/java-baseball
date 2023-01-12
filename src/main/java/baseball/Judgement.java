@@ -18,6 +18,10 @@ public class Judgement {
         countStrike();
     }
 
+    public int getStrike() {
+        return strike;
+    }
+
     private void countBall() {
         for(int i = 0; i < computerNum.size(); i++) {
             if(computerNum.contains(userNum.get(i))) {
@@ -46,12 +50,5 @@ public class Judgement {
             System.out.print("낫싱");
         }
         System.out.println();
-    }
-
-    public boolean isRight() {
-        if(this.strike == 3) {
-            return true;
-        }
-        return false;
     }
 }

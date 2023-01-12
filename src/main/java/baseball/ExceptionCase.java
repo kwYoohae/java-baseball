@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ExceptionCase {
 
-    final int USER_NUMBER_SIZE = 3;
+    public final static int USER_NUMBER_SIZE = 3;
     private List<Integer> userNum = new ArrayList<>();
 
     ExceptionCase(List<Integer> userNum) {

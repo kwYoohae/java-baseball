@@ -8,7 +8,8 @@ import java.util.Scanner;
 
 public class Manager {
 
-    final int RESET = 1;
+    public final static int RESET = 1;
+    public final static int CORRECT = 3;
 
     Manager() {
         startGame();
@@ -31,7 +32,7 @@ public class Manager {
             User user = new User();
             Judgement judge = new Judgement(computer.getComputer(), user.getUserNum());
             judge.printCount();
-            isDone = judge.isRight();
+            isDone = (judge.getStrike() == CORRECT);
         }
     }
 
