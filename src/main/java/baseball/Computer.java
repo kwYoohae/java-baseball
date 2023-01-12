@@ -5,33 +5,34 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RandomNumber {
+public class Computer {
 
-    private List<Integer> computer = new ArrayList<>();
+    final int RANDOM_NUMBER_SIZE = 3;
+    private List<Integer> computerNum = new ArrayList<>();
 
-    RandomNumber() {
-        setComputer();
+    Computer() {
+        setComputerNum();
     }
 
-    public void setComputer() {
-        this.computer = randomNum();
+    public void setComputerNum() {
+        this.computerNum = createRandomNum();
     }
 
     public List<Integer> getComputer() {
-        return computer;
+        return computerNum;
     }
 
-    private List<Integer> randomNum() {
-        List<Integer> computer = new ArrayList<>();
+    private List<Integer> createRandomNum() {
+        List<Integer> computerNum = new ArrayList<>();
 
-        while (computer.size() < 3) {
+        while (computerNum.size() < RANDOM_NUMBER_SIZE) {
             int randomNumber = Randoms.pickNumberInRange(1, 9);
-            if (!computer.contains(randomNumber)) {
-                computer.add(randomNumber);
+            if (!computerNum.contains(randomNumber)) {
+                computerNum.add(randomNumber);
                 System.out.print(randomNumber);
             }
         }
         System.out.println();
-        return computer;
+        return computerNum;
     }
 }

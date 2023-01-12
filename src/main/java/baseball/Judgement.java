@@ -7,30 +7,28 @@ public class Judgement {
     private int strike;
     private int ball;
 
-    private List<Integer> computer = new ArrayList<>();
-    private List<Integer> user = new ArrayList<>();
+    private List<Integer> computerNum = new ArrayList<>();
+    private List<Integer> userNum = new ArrayList<>();
 
-    Judgement(CreateNum create) {
-        this.strike = 0;
-        this.ball = 0;
+    Judgement(List<Integer> computerNum, List<Integer> userNum) {
+        this.computerNum = computerNum;
+        this.userNum = userNum;
 
-        computer = create.getComputer();
-        user = create.getUser();
+        countBall();
+        countStrike();
     }
 
-
-
-    public void countBall() {
-        for(int i = 0; i < computer.size(); i++) {
-            if(computer.contains(user.get(i))) {
+    private void countBall() {
+        for(int i = 0; i < computerNum.size(); i++) {
+            if(computerNum.contains(userNum.get(i))) {
                 ++this.ball;
             }
         }
     }
 
-    public void countStrike() {
-        for(int i = 0; i < computer.size(); i++) {
-            if(computer.get(i) == user.get(i)) {
+    private void countStrike() {
+        for(int i = 0; i < computerNum.size(); i++) {
+            if(computerNum.get(i) == userNum.get(i)) {
                 ++this.strike;
                 --this.ball;
             }
