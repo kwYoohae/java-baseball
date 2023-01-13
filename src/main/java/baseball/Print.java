@@ -1,6 +1,7 @@
 package baseball;
 
-public class Print {
+public class Print { // class for print message
+
     public static void startBaseBall() {
         System.out.println("숫자 야구 게임을 시작합니다.");
     }

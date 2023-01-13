@@ -8,10 +8,12 @@ import java.util.List;
 public class User { // class for user
 
     private String inputUserNum;
+    private String replayOrExit;
+    Exception exception = new Exception();
     private List<String> convertBeforeUserNum = new ArrayList<>();
     private List<Integer> userNum = new ArrayList<>();
-    Exception exception = new Exception();
-    String replayOrExit;
+
+
 
     public void convertUserNum() { // set user number
         initialize();

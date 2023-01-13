@@ -9,11 +9,12 @@ public class Computer { // class for game management
 
     public final static Integer THREE_STRIKE = 3;
     public final static Integer ZERO = 0;
+    public Integer numOfBall = ZERO, numOfStrike = ZERO; // judge number of Ball, number of Strike
     User user = new User();
     Exception exception = new Exception();
     List<Integer> userNum = new ArrayList<>(); // ArrayList for user's 3 numbers
     List<Integer> randomNum = new ArrayList<>(); // ArrayList for make 3 random numbers
-    Integer numOfBall = ZERO, numOfStrike = ZERO; // judge number of Ball, number of Strike
+
 
     public void start() { // start game
         Print.startBaseBall();
@@ -68,7 +69,7 @@ public class Computer { // class for game management
         countStrike();
         if (numOfStrike == THREE_STRIKE) {
             Print.endGame();
-            replayOrExit(); // if strike is 3, decide regame or exit game
+            replayOrExit(); // if strike is 3, decide replay new game or exit game
         }
     }
 
@@ -93,7 +94,7 @@ public class Computer { // class for game management
             Print.strike(numOfStrike);
     }
 
-    public void replayOrExit() { // replay game or exit game
+    public void replayOrExit() { // replay new game or exit game
         if (user.getUserReplayOrExit().equals("1")) {
             initialize();
             initializeRandomNum();
@@ -101,7 +102,7 @@ public class Computer { // class for game management
         }
     }
 
-    public void initializeRandomNum() {
+    public void initializeRandomNum() { // initialize random number for new game
         randomNum.clear();
     }
 }
