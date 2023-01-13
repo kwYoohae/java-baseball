@@ -43,13 +43,13 @@ public class Manager {
     }
 
     public void printCount(Judgement judge) {
-        if(judge.getBall() > NONE) {
+        if (judge.getBall() > NONE) {
             System.out.print(judge.getBall() + "볼 ");
         }
-        if(judge.getStrike() > NONE) {
+        if (judge.getStrike() > NONE) {
             System.out.print(judge.getStrike() + "스트라이크");
         }
-        if(judge.getBall() == NONE && judge.getStrike() == NONE) {
+        if (judge.getBall() == NONE && judge.getStrike() == NONE) {
             System.out.print("낫싱");
         }
         System.out.println();

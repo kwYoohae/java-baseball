@@ -32,5 +32,9 @@ public class User {
 
     private void isException() {
         ExceptionCase exception = new ExceptionCase(this.userNum);
+        exception.wrongSize();
+        exception.duplicatedNum();
+        exception.zeroNum();
+        exception.notNumber();
     }
 }

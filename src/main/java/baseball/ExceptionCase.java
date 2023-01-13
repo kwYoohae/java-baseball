@@ -13,7 +13,6 @@ public class ExceptionCase {
 
     ExceptionCase(List<Integer> userNum) {
         this.userNum = userNum;
-        isUserInputError();
     }
 
     public static void isSelectNumError(int selectNum) {
@@ -22,32 +21,25 @@ public class ExceptionCase {
         }
     }
 
-    private void isUserInputError() {
-        wrongSize();
-        duplicatedNum();
-        zeroNum();
-        notNumber();
-    }
-
-    private void wrongSize() {
+    public void wrongSize() {
         if(userNum.size() != USER_NUMBER_SIZE) {
             throw new IllegalArgumentException(USER_NUMBER_SIZE + "개의 숫자를 입력해야 합니다");
         }
     }
 
-    private void duplicatedNum() {
+    public void duplicatedNum() {
         if(userNum.size() != userNum.stream().distinct().count()) {
             throw new IllegalArgumentException("중복된 숫자가 존재합니다.");
         }
     }
 
-    private void zeroNum() {
+    public void zeroNum() {
         if(userNum.contains(0) == true) {
             throw new IllegalArgumentException("입력된 숫자 중 0이 존재합니다.");
         }
     }
 
-    private void notNumber() {
+    public void notNumber() {
         for (int i = 0; i < userNum.size(); i++) {
             char input = Integer.toString(userNum.get(i)).charAt(0);
             if (48 > input && input > 57) {
