@@ -7,44 +7,44 @@ import java.util.List;
 
 public class User { // class for user
 
-    private String userNum;
-    private List<Integer> userNumList = new ArrayList<>();
-    private List<String> userNumStringList = new ArrayList<>();
+    private String inputUserNum;
+    private List<String> convertBeforeUserNum = new ArrayList<>();
+    private List<Integer> userNum = new ArrayList<>();
     Exception exception = new Exception();
     String replayOrExit;
 
     public void convertUserNum() { // set user number
         initialize();
-        userNum = Console.readLine();
-        makeStringList(userNum);
+        inputUserNum = Console.readLine();
+        makeStringList(inputUserNum);
+    }
+
+    public void initialize() { // initialize value for new game
+        userNum.clear();
+        convertBeforeUserNum.clear();
     }
 
     public void makeStringList(String str) { // make user number list(String)
         for (int i = 0; i < str.length(); i++)
-            userNumStringList.add(str.substring(i, i + 1));
-        convertStringToInteger(userNumStringList);
+            convertBeforeUserNum.add(str.substring(i, i + 1));
+        convertStringToInteger(convertBeforeUserNum);
     }
 
     public void convertStringToInteger(List<String> stringList) { // convert user number list String to Integer
         for (int i = 0; i < stringList.size(); i++) {
             exception.judgeIsNumberException(stringList);
-            userNumList.add(Integer.parseInt(stringList.get(i)));
+            userNum.add(Integer.parseInt(stringList.get(i)));
         }
     }
 
-    public List<Integer> getUserNumList() { // get user number(Integer) list
+    public List<Integer> getUserNum() { // get user number(Integer) list
         convertUserNum();
-        return userNumList;
+        return userNum;
     }
 
-    public String getUserReplayOrExit() {
+    public String getUserReplayOrExit() { // return replay or exit
         replayOrExit = Console.readLine();
         exception.replayOrExitNumberException(replayOrExit);
         return replayOrExit;
-    }
-
-    public void initialize() {
-        userNumList.clear();
-        userNumStringList.clear();
     }
 }

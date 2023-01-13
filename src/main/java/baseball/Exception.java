@@ -6,9 +6,12 @@ import java.util.List;
 
 public class Exception { // class for exception handling
 
+    public final static Integer MAX_NUM = 9;
+    public final static Integer MIN_NUM = 1;
+
     public void rangeOfUserNumberException(List<Integer> userNumList) { // exception for number compose
         for (int i = 0; i < userNumList.size(); i++) {
-            if (userNumList.get(i) > 9 || userNumList.get(i) < 1)
+            if (userNumList.get(i) > MAX_NUM || userNumList.get(i) < MIN_NUM)
                 throw new IllegalArgumentException("각 숫자는 1 이상 9 이하로 구성되어야 합니다.");
         }
     }

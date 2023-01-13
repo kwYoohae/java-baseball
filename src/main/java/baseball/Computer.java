@@ -7,11 +7,13 @@ import java.util.List;
 
 public class Computer { // class for game management
 
+    public final static Integer THREE_STRIKE = 3;
+    public final static Integer ZERO = 0;
     User user = new User();
     Exception exception = new Exception();
     List<Integer> userNum = new ArrayList<>(); // ArrayList for user's 3 numbers
     List<Integer> randomNum = new ArrayList<>(); // ArrayList for make 3 random numbers
-    Integer numOfBall = 0, numOfStrike = 0; // judge number of Ball, number of Strike
+    Integer numOfBall = ZERO, numOfStrike = ZERO; // judge number of Ball, number of Strike
 
     public void start() { // start game
         Print.startBaseBall();
@@ -28,9 +30,27 @@ public class Computer { // class for game management
         }
     }
 
+    public void judgeAnswer() { // judge answer logic
+        while (!userNum.equals(randomNum)) { // if user input number is different with computer's random number
+            initialize();
+            inputNum();
+            exception.userNumberException(userNum);
+            countBall();
+            judgeStrike();
+            judgeNothing();
+            printAnswerInformation();
+        }
+    }
+
+    public void initialize() { // initialize exist information for restart game
+        numOfStrike = ZERO;
+        numOfBall = ZERO;
+        userNum.clear();
+    }
+
     public void inputNum() { // get user number
         Print.inputNumber();
-        userNum = user.getUserNumList();
+        userNum = user.getUserNum();
     }
 
     public void countBall() { // judge Ball's number
@@ -46,7 +66,7 @@ public class Computer { // class for game management
 
     public void judgeStrike() { // judge Strike's number
         countStrike();
-        if (numOfStrike == 3) {
+        if (numOfStrike == THREE_STRIKE) {
             Print.endGame();
             replayOrExit(); // if strike is 3, decide regame or exit game
         }
@@ -59,12 +79,17 @@ public class Computer { // class for game management
         }
     }
 
+    public void judgeNothing() { // judge nothing and print nothing
+        if (numOfBall == ZERO && numOfStrike == ZERO)
+            Print.nothing();
+    }
+
     public void printAnswerInformation() { // print ball and strike information
-        if (numOfBall != 0 && numOfStrike == 0)
+        if (numOfBall != ZERO && numOfStrike == ZERO)
             Print.ballLF(numOfBall);
-        if (numOfBall != 0 && numOfStrike != 0)
+        if (numOfBall != ZERO && numOfStrike != ZERO)
             Print.ball((numOfBall));
-        if (numOfStrike != 0)
+        if (numOfStrike != ZERO)
             Print.strike(numOfStrike);
     }
 
@@ -78,28 +103,5 @@ public class Computer { // class for game management
 
     public void initializeRandomNum() {
         randomNum.clear();
-    }
-
-    public void judgeNothing() { // judge nothing and print nothing
-        if (numOfBall == 0 && numOfStrike == 0)
-            Print.nothing();
-    }
-
-    public void initialize() { // initialize exist information for restart game
-        numOfStrike = 0;
-        numOfBall = 0;
-        userNum.clear();
-    }
-
-    public void judgeAnswer() { // judge answer logic
-        while (!userNum.equals(randomNum)) { // if user input number is different with computer's random number
-            initialize();
-            inputNum();
-            exception.userNumberException(userNum);
-            countBall();
-            judgeStrike();
-            judgeNothing();
-            printAnswerInformation();
-        }
     }
 }
