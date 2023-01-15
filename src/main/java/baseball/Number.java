@@ -1,6 +1,7 @@
 package baseball;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Random;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
@@ -8,6 +9,7 @@ import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
 public class Number {
 
+    private final static int NUMBER_LENGTH = 3;
     private int startRange = 0;
     private int endRange = 0;
 
@@ -19,7 +21,7 @@ public class Number {
     ArrayList<Integer> getComputerNumbers(){
         ArrayList<Integer> computerNumbers = new ArrayList<>();
 
-        while(computerNumbers.size() < 3){
+        while(computerNumbers.size() < NUMBER_LENGTH){
             int num = pickNumberInRange(startRange, endRange); //extract random number between entered range
             if(!computerNumbers.contains(num)){ //Do not save duplicate numbers
                 computerNumbers.add(num);
@@ -31,7 +33,6 @@ public class Number {
 
     ArrayList<Integer> getUserNumbers(){ //사용자에게 1~9 사이의 서로 다른 수 입력받는 메서드
         ArrayList<Integer> userNumbers = new ArrayList<>();
-        System.out.print("숫자를 입력해주세요 : ");
         String numbers = readLine(); //get string without separator
 
         MyException.userNumberGetException(numbers);
