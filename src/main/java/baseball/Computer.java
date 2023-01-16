@@ -5,6 +5,9 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 
+import static baseball.Exception.MAX_NUM;
+import static baseball.Exception.MIN_NUM;
+
 public class Computer { // class for game management
 
     public final static Integer THREE_STRIKE = 3;
@@ -15,16 +18,16 @@ public class Computer { // class for game management
     List<Integer> userNum = new ArrayList<>(); // ArrayList for user's 3 numbers
     List<Integer> randomNum = new ArrayList<>(); // ArrayList for make 3 random numbers
 
-
     public void start() { // start game
         Print.startBaseBall();
         makeRandomNum();
+        System.out.println(randomNum);
         judgeAnswer();
     }
 
     public void makeRandomNum() { // make 3 random number
         while (randomNum.size() < 3) {
-            int randomNumber = Randoms.pickNumberInRange(1, 9);
+            int randomNumber = Randoms.pickNumberInRange(MIN_NUM, MAX_NUM);
             if (!randomNum.contains(randomNumber)) {
                 randomNum.add(randomNumber);
             }
@@ -38,9 +41,17 @@ public class Computer { // class for game management
             exception.userNumberException(userNum);
             countBall();
             judgeStrike();
+            if(breakForNewGame())
+                break;
             judgeNothing();
             printAnswerInformation();
         }
+    }
+
+    public boolean breakForNewGame(){
+        if(userNum.equals(randomNum))
+            return true;
+        return false;
     }
 
     public void initialize() { // initialize exist information for restart game
@@ -68,6 +79,7 @@ public class Computer { // class for game management
     public void judgeStrike() { // judge Strike's number
         countStrike();
         if (numOfStrike == THREE_STRIKE) {
+            Print.strike(numOfStrike);
             Print.endGame();
             replayOrExit(); // if strike is 3, decide replay new game or exit game
         }
@@ -87,7 +99,7 @@ public class Computer { // class for game management
 
     public void printAnswerInformation() { // print ball and strike information
         if (numOfBall != ZERO && numOfStrike == ZERO)
-            Print.ballLF(numOfBall);
+            Print.ballNewLine(numOfBall);
         if (numOfBall != ZERO && numOfStrike != ZERO)
             Print.ball((numOfBall));
         if (numOfStrike != ZERO)

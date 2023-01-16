@@ -13,8 +13,6 @@ public class User { // class for user
     private List<String> convertBeforeUserNum = new ArrayList<>();
     private List<Integer> userNum = new ArrayList<>();
 
-
-
     public void convertUserNum() { // set user number
         initialize();
         inputUserNum = Console.readLine();

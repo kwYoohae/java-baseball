@@ -10,11 +10,11 @@ public class Print { // class for print message
         System.out.print("숫자를 입력해주세요 : ");
     }
 
-    public static void ball(Integer numOfBall) {
+    public static void ballNewLine(Integer numOfBall) {
         System.out.println(numOfBall + "볼 ");
     }
 
-    public static void ballLF(Integer numOfBall) {
+    public static void ball(Integer numOfBall) {
         System.out.print(numOfBall + "볼 ");
     }
 
