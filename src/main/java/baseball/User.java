@@ -9,7 +9,7 @@ public class User {
 
     private List<Integer> userNum = new ArrayList<>();
 
-    User() {
+    public User() {
         inputNum();
         isException();
     }
@@ -31,10 +31,10 @@ public class User {
     }
 
     private void isException() {
-        ExceptionCase exception = new ExceptionCase(this.userNum);
-        exception.wrongSize();
-        exception.duplicatedNum();
-        exception.zeroNum();
-        exception.notNumber();
+        ExceptionCase exception = new ExceptionCase();
+        exception.wrongSize(userNum);
+        exception.duplicatedNum(userNum);
+        exception.zeroNum(userNum);
+        exception.notNumber(userNum);
     }
 }

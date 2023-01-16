@@ -6,29 +6,33 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import static baseball.ExceptionCase.USER_NUMBER_SIZE;
+
 public class Manager {
 
     public final static int RESET = 1;
     public final static int ENDGAME = 2;
-    public final int CORRECT = 3;
-    public final int NONE = 0;
+    public final static int CORRECT = 3;
+    public final static int NONE = 0;
 
-    Manager() {
+    public Manager() {
         startGame();
     }
 
     public void startGame() {
         System.out.println("숫자 야구 게임을 시작합니다.");
 
-        boolean isAgain = true;
-        while(isAgain) {
+        int selectNum = NONE;
+        do {
             Computer computer = new Computer();
             playGame(computer);
 
-            System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
-            System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
-            isAgain = endOrReset();
-        }
+            System.out.println(USER_NUMBER_SIZE + "개의 숫자를 모두 맞히셨습니다! 게임 종료");
+            System.out.println("게임을 새로 시작하려면 " + RESET + ", 종료하려면 " + ENDGAME + "를 입력하세요.");
+            selectNum = endOrReset();
+
+        } while(selectNum == RESET);
+        System.out.print("숫자 야구 게임을 종료합니다.");
     }
 
     public void playGame(Computer computer) {
@@ -55,16 +59,12 @@ public class Manager {
         System.out.println();
     }
 
-    public boolean endOrReset() {
+    public int endOrReset() {
         String select = Console.readLine();
         int selectNum = Integer.parseInt(select);
 
         ExceptionCase.isSelectNumError(selectNum);
 
-        if(selectNum == RESET) {
-            return true;
-        }
-        return false;
-
+        return selectNum;
     }
 }

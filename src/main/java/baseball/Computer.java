@@ -7,10 +7,10 @@ import java.util.List;
 
 public class Computer {
 
-    public static int RANDOM_NUMBER_SIZE = 3;
+    public final static int RANDOM_NUMBER_SIZE = 3;
     private List<Integer> computerNum = new ArrayList<>();
 
-    Computer() {
+    public Computer() {
         createRandomNum();
     }
 
@@ -24,7 +24,6 @@ public class Computer {
 
             if (!this.computerNum.contains(randomNumber)) {
                 this.computerNum.add(randomNumber);
-                System.out.print(randomNumber);
             }
         }
         System.out.println();

@@ -11,12 +11,16 @@ public class Judgement {
     private List<Integer> computerNum = new ArrayList<>();
     private List<Integer> userNum = new ArrayList<>();
 
-    Judgement(List<Integer> computerNum, List<Integer> userNum) {
+    public Judgement(List<Integer> computerNum, List<Integer> userNum) {
         this.computerNum = computerNum;
         this.userNum = userNum;
 
         countBall();
         countStrike();
+    }
+
+    public void setUserNum(List<Integer> userNum) {
+        this.userNum = userNum;
     }
 
     public int getStrike() {
