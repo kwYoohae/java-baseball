@@ -6,10 +6,13 @@ import java.util.Objects;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class GameManager {
-    private final int GAME_RESTART = 1;
-    private final int GAME_END = 2;
-    private final int ALL_STRIKE = 30;
-    private final int NOTHING_CORRECT = 0;
+    private final static int GAME_RESTART = 1;
+    private final static int GAME_END = 2;
+    private final static int ALL_STRIKE = 30;
+    private final static int NOTHING_CORRECT = 0;
+
+    private final static int startRange = 1;
+    private final static int endRange = 9;
 
     private ArrayList<Integer> computerNumbers;
     private ArrayList<Integer> userNumbers;
