@@ -29,7 +29,6 @@ public class Referee {
 
     private void setStrike(List<Integer> ballCount)     //is it strike?
     {
-        //this.strike = 0;
         int result = 0;
         for(int i=0;i<3;i++)        //숫자와 자리가 같은경우
         {
@@ -43,12 +42,9 @@ public class Referee {
 
     private void setBall(List<Integer> ballCount)     //is it ball?
     {
-        //this.ball = 0;
         int result = 0;
-        //boolean ballds;
         for(int i=0;i<3;i++)
         {
-            //ballds = inCount(userCount.get(i),ballCount);
             if(userCount.get(i) != ballCount.get(i) && inCount(userCount.get(i),ballCount))        //숫자는 같으나 자리는 다른경우
             {
                 result++;
