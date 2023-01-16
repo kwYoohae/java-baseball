@@ -11,6 +11,8 @@ public class GameManager {
     private final static int ALL_STRIKE = 30;
     private final static int NOTHING_CORRECT = 0;
 
+    private final static int NUMBER_LENGTH = 3;
+
     private final static int startRange = 1;
     private final static int endRange = 9;
 
