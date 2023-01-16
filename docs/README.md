@@ -13,3 +13,10 @@
       - [x] empty 메서드
       - [ ] 리팩토링
     -[x] 3 상수처리
+
+## 클래스 나누기
+- [x] Generator
+- [x] Printer
+- [x] Reader
+- [x] Referee
+
