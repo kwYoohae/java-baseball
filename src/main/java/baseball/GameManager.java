@@ -24,24 +24,24 @@ public class GameManager {
             String state = readLine();
             MyException.gameStateException(state);
 
-            gameStatus = (state.charAt(0) - '0'); //change the format from char to int
+            gameStatus = state.charAt(0);
 
         } while(gameStatus == GAME_RESTART);
 
         System.out.println("게임 종료");
     }
 
-    private void executeGame(){ //game run
+    private void executeGame(){
         Number manageNumber = new Number(1, 9);
         computerNumbers = manageNumber.getComputerNumbers();
-        while(true) { //Manage Entire Game
+        while(true) {
             System.out.print("숫자를 입력해주세요 : ");
             userNumbers = manageNumber.getUserNumbers();
 
             int result = compareNumbers();
             userNumbers.clear();
             printResult(result);
-            if(result == ALL_STRIKE) { //End the game when users get all the numbers right
+            if(result == ALL_STRIKE) {
                 computerNumbers.clear();
                 break;
             }
@@ -62,7 +62,7 @@ public class GameManager {
         }
     }
 
-    int compareNumbers(){ //Compare the number of computers to the number you enter
+    int compareNumbers(){
         int strike = 0;
         int ball = 0;
         for(int i=0; i<3; i++){
