@@ -14,11 +14,12 @@ public class Manager {
     private List<Integer> userCount;        //유저의 입력 카운트
     private boolean missionComplete;        //is game done? 게임이 끝나는가
     private Scanner scanner;        //user input scanner 유저 입력 scanner
+    final private int bits = 3;         //몇자리인가
 
     Manager()       //constructor
     {
         System.out.println("숫자 야구 게임을 시작합니다.");     //opening message
-        userNumber = new int[3];    //create userNumber     배열생성
+        userNumber = new int[bits];    //create userNumber     배열생성
         ballCount = new ArrayList<>();
         userCount = new ArrayList<>();
         missionComplete = false;    //now playing
@@ -28,7 +29,7 @@ public class Manager {
     private void makeNumber()       //create number
     {
         List<Integer> computer = new ArrayList<>();
-        while (computer.size() < 3) {
+        while (computer.size() < bits) {
             int randomNumber = Randoms.pickNumberInRange(1, 9);
             if (!computer.contains(randomNumber)) {
                 computer.add(randomNumber);
@@ -57,7 +58,7 @@ public class Manager {
         this.userNumber[0] = num / 100;
         this.userNumber[1] = num % 100 / 10;
         this.userNumber[2] = num % 10;
-        for(int i=0;i<3;i++)
+        for(int i=0;i<bits;i++)
         {
             userCount.add(userNumber[i]);
         }
@@ -81,7 +82,7 @@ public class Manager {
         }if(strike == 0 && ball == 0) {
         System.out.print("낫싱");
     }
-        if(strike == 3) {
+        if(strike == bits) {
             missionComplete = true;
         }
     }
@@ -89,7 +90,7 @@ public class Manager {
     private int inStrikeZone()     //is it strike?
     {
         int result = 0;
-        for(int i=0;i<3;i++)        //숫자와 자리가 같은경우
+        for(int i=0;i<bits;i++)        //숫자와 자리가 같은경우
         {
             if(userCount.get(i) == ballCount.get(i))
             {
@@ -103,7 +104,7 @@ public class Manager {
     {
         int result = 0;
         boolean ballds;
-        for(int i=0;i<3;i++)
+        for(int i=0;i<bits;i++)
         {
             ballds = inCount(userNumber[i]);
             if(userNumber[i] != ballCount.get(i) && ballds)        //숫자는 같으나 자리는 다른경우
@@ -116,7 +117,7 @@ public class Manager {
 
     private boolean inCount(int n)       //is that index in number?
     {
-        for(int i=0;i<3;i++)        //다른자리에 값이 있는경우
+        for(int i=0;i<bits;i++)        //다른자리에 값이 있는경우
         {
             if(ballCount.get(i) == n)
             {
