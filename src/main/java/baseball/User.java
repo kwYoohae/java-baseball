@@ -20,21 +20,20 @@ public class User {
 
     private void inputNum() {
         System.out.print("숫자를 입력해주세요 : ");
-        String readNum = Console.readLine();
+        String readInput = Console.readLine();
 
-        String[] num = readNum.split("");
+        String[] inputWord = readInput.split("");
+        ExceptionCase.notNumber(inputWord);
 
-        for(int i = 0; i < readNum.length(); i++) {
-            int number = Integer.parseInt(num[i]);
+        for(int i = 0; i < readInput.length(); i++) {
+            int number = Integer.parseInt(inputWord[i]);
             this.userNum.add(number);
         }
     }
 
     private void isException() {
-        ExceptionCase exception = new ExceptionCase();
-        exception.wrongSize(userNum);
-        exception.duplicatedNum(userNum);
-        exception.zeroNum(userNum);
-        exception.notNumber(userNum);
+        ExceptionCase.wrongSize(this.userNum);
+        ExceptionCase.duplicatedNum(this.userNum);
+        ExceptionCase.zeroNum(this.userNum);
     }
 }
