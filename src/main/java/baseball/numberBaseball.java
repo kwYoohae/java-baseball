@@ -27,7 +27,7 @@ public class numberBaseball {
             setRegame(referee.getStrike());     //재시작여부
             referee.empty();        //유저입력 초기화
         }
-
+        System.out.println("게임 종료");
     }
 
     private void setRegame(int s)
