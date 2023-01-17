@@ -8,6 +8,7 @@ import java.util.List;
 public class Computer {
 
     public final static int RANDOM_NUMBER_SIZE = 3;
+
     private List<Integer> computerNum = new ArrayList<>();
 
     public Computer() {

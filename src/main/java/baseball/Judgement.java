@@ -9,18 +9,9 @@ public class Judgement {
     private int ball;
 
     private List<Integer> computerNum = new ArrayList<>();
-    private List<Integer> userNum = new ArrayList<>();
 
-    public Judgement(List<Integer> computerNum, List<Integer> userNum) {
+    public Judgement(List<Integer> computerNum) {
         this.computerNum = computerNum;
-        this.userNum = userNum;
-
-        countBall();
-        countStrike();
-    }
-
-    public void setUserNum(List<Integer> userNum) {
-        this.userNum = userNum;
     }
 
     public int getStrike() {
@@ -31,7 +22,15 @@ public class Judgement {
         return ball;
     }
 
-    private void countBall() {
+    public void countUserInput(List<Integer> userNum) {
+        this.strike = 0;
+        this.ball = 0;
+
+        countBall(userNum);
+        countStrike(userNum);
+    }
+
+    private void countBall(List<Integer> userNum) {
         for(int i = 0; i < computerNum.size(); i++) {
             if(computerNum.contains(userNum.get(i))) {
                 ++this.ball;
@@ -39,7 +38,7 @@ public class Judgement {
         }
     }
 
-    private void countStrike() {
+    private void countStrike(List<Integer> userNum) {
         for(int i = 0; i < computerNum.size(); i++) {
             if(computerNum.get(i) == userNum.get(i)) {
                 ++this.strike;

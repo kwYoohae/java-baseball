@@ -25,21 +25,20 @@ public class Manager {
         int selectNum = NONE;
         do {
             Computer computer = new Computer();
-            playGame(computer);
+            Judgement judge = new Judgement(computer.getComputer());
 
-            System.out.println(USER_NUMBER_SIZE + "개의 숫자를 모두 맞히셨습니다! 게임 종료");
-            System.out.println("게임을 새로 시작하려면 " + RESET + ", 종료하려면 " + ENDGAME + "를 입력하세요.");
+            playGame(computer, judge);
             selectNum = endOrReset();
 
         } while(selectNum == RESET);
         System.out.print("숫자 야구 게임을 종료합니다.");
     }
 
-    public void playGame(Computer computer) {
+    public void playGame(Computer computer, Judgement judge) {
         boolean isDone = false;
         while (!isDone) {
             User user = new User();
-            Judgement judge = new Judgement(computer.getComputer(), user.getUserNum());
+            judge.countUserInput(user.getUserNum());
 
             printCount(judge);
             isDone = (judge.getStrike() == CORRECT);
@@ -60,6 +59,9 @@ public class Manager {
     }
 
     public int endOrReset() {
+        System.out.println(USER_NUMBER_SIZE + "개의 숫자를 모두 맞히셨습니다! 게임 종료");
+        System.out.println("게임을 새로 시작하려면 " + RESET + ", 종료하려면 " + ENDGAME + "를 입력하세요.");
+
         String select = Console.readLine();
         int selectNum = Integer.parseInt(select);
 

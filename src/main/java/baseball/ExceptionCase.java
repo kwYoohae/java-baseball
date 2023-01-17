@@ -3,8 +3,7 @@ package baseball;
 import java.util.ArrayList;
 import java.util.List;
 
-import static baseball.Manager.ENDGAME;
-import static baseball.Manager.RESET;
+import static baseball.Manager.*;
 
 public class ExceptionCase {
 
