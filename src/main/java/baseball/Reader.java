@@ -15,6 +15,7 @@ public class Reader {
     {
         System.out.print("숫자를 입력해주세요 :");
         user = scanner.nextInt();
+        checkBit();
     }
 
     public int inputReGame()
@@ -27,5 +28,13 @@ public class Reader {
     public int returnUserInput()            //유저가 입력한 숫자를 반환하는 메서드
     {
         return user;
+    }
+
+    private void checkBit()     //자릿수 검증
+    {
+        if( (int)(Math.log10(this.user)+1) >= 4)
+        {
+            throw new IllegalArgumentException("Number length is too long");
+        }
     }
 }
