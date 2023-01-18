@@ -28,38 +28,36 @@ public class GameManager {
 
             gameStatus = state.charAt(0) - '0';
 
-        } while(gameStatus == GAME_RESTART);
+        } while (gameStatus == GAME_RESTART);
 
         System.out.println("게임 종료");
     }
 
-    private void executeGame(){
+    private void executeGame() {
         BaseballGame baseballGame = new BaseballGame();
 
         baseballGame.assignComputerNumbers();
-        while(true) {
+        while (true) {
             System.out.print("숫자를 입력해주세요 : ");
             baseballGame.assignUserNumbers();
 
             int result = baseballGame.compareNumbers();
             printResult(result);
-            if(result == ALL_STRIKE) {
+            if (result == ALL_STRIKE) {
                 break;
             }
         }
     }
 
-    private void printResult(int result){
-        if(result == ALL_STRIKE){
+    private void printResult(int result) {
+        if (result == ALL_STRIKE) {
             System.out.println("3스트라이크");
             System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
             System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요");
-        }
-        else if(result == NOTHING_CORRECT){
+        } else if (result == NOTHING_CORRECT) {
             System.out.println("낫싱");
-        }
-        else{
-            System.out.println(result%10+"볼 "+result/10+"스트라이크");
+        } else {
+            System.out.println(result % 10 + "볼 " + result / 10 + "스트라이크");
         }
     }
 }
