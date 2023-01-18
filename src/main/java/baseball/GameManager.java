@@ -26,7 +26,7 @@ public class GameManager {
             String state = readLine();
             MyException.gameStateException(state);
 
-            gameStatus = state.charAt(0);
+            gameStatus = state.charAt(0) - '0';
 
         } while(gameStatus == GAME_RESTART);
 
