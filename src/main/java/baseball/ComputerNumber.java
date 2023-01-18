@@ -7,7 +7,7 @@ import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
 public class ComputerNumber {
 
-    ArrayList<Integer> getComputerNumbers(){
+    public ArrayList<Integer> getComputerNumbers(){
         ArrayList<Integer> computerNumbers = new ArrayList<>();
 
         while(computerNumbers.size() < NUMBER_LENGTH){

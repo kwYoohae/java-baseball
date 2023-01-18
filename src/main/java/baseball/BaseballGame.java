@@ -26,7 +26,7 @@ public class BaseballGame {
         userNumbers = userNumber.getUserNumbers();
     }
 
-    int compareNumbers(){
+    public int compareNumbers(){
         int strike = 0;
         int ball = 0;
         for(int i=0; i<3; i++){
