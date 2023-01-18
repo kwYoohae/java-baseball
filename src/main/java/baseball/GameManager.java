@@ -11,13 +11,10 @@ public class GameManager {
     private final static int ALL_STRIKE = 30;
     private final static int NOTHING_CORRECT = 0;
 
-    private final static int NUMBER_LENGTH = 3;
 
-    private final static int startRange = 1;
-    private final static int endRange = 9;
-
-    private ArrayList<Integer> computerNumbers;
-    private ArrayList<Integer> userNumbers;
+    public final static int NUMBER_LENGTH = 3;
+    public final static int startRange = 1;
+    public final static int endRange = 9;
 
     public void run() {
         int gameStatus = GAME_END;
@@ -37,17 +34,16 @@ public class GameManager {
     }
 
     private void executeGame(){
-        Number manageNumber = new Number(1, 9);
-        computerNumbers = manageNumber.getComputerNumbers();
+        BaseballGame baseballGame = new BaseballGame();
+
+        baseballGame.assignComputerNumbers();
         while(true) {
             System.out.print("숫자를 입력해주세요 : ");
-            userNumbers = manageNumber.getUserNumbers();
+            baseballGame.assignUserNumbers();
 
-            int result = compareNumbers();
-            userNumbers.clear();
+            int result = baseballGame.compareNumbers();
             printResult(result);
             if(result == ALL_STRIKE) {
-                computerNumbers.clear();
                 break;
             }
         }
@@ -65,18 +61,5 @@ public class GameManager {
         else{
             System.out.println(result%10+"볼 "+result/10+"스트라이크");
         }
-    }
-
-    int compareNumbers(){
-        int strike = 0;
-        int ball = 0;
-        for(int i=0; i<3; i++){
-            if(Objects.equals(computerNumbers.get(i), userNumbers.get(i)))
-                strike++;
-            else if(computerNumbers.contains(userNumbers.get(i)))
-                ball++;
-        }
-
-        return strike*10 + ball;
     }
 }
