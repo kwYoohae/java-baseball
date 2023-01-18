@@ -7,15 +7,6 @@ public class BaseballGame {
     private ArrayList<Integer> computerNumbers;
     private ArrayList<Integer> userNumbers;
 
-    public ArrayList<Integer> getComputerNumbers() {
-        return computerNumbers;
-    }
-
-    public ArrayList<Integer> getUserNumbers() {
-        return userNumbers;
-    }
-
-
     public void assignComputerNumbers(){
         ComputerNumber computerNumber = new ComputerNumber();
         computerNumbers = computerNumber.getComputerNumbers();
