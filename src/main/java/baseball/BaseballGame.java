@@ -1,20 +1,23 @@
 package baseball;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class BaseballGame {
-    private ArrayList<Integer> computerNumbers;
-    private ArrayList<Integer> userNumbers;
+    private List<Integer> computerNumbers;
+    private List<Integer> userNumbers;
 
     public void assignComputerNumbers() {
-        ComputerNumber computerNumber = new ComputerNumber();
-        computerNumbers = computerNumber.getComputerNumbers();
+        ComputerNumberService computerNumberService = new ComputerNumberService();
+        Number number = new Number(computerNumberService.getComputerNumbers());
+        computerNumbers = number.getNumbers();
     }
 
     public void assignUserNumbers() {
-        UserNumber userNumber = new UserNumber();
-        userNumbers = userNumber.getUserNumbers();
+        UserNumberService userNumberService = new UserNumberService();
+        Number number = new Number(userNumberService.getUserNumbers());
+        userNumbers = number.getNumbers();
     }
 
     public int compareNumbers() {

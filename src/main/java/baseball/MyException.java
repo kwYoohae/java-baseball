@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class MyException {
 
-    private final static String INVALID_LENGTH = "잘못된 길이의 수 입력";
-    private final static String INVALID_VALUE = "지정된 범위 밖의 수 입력";
+    public final static String INVALID_LENGTH = "잘못된 길이의 수 입력";
+    public final static String INVALID_VALUE = "지정된 범위 밖의 수 입력";
     static public void gameStateException(String state) {
         if (state.length() != 1) //enter invalid length of game state
             throw new IllegalArgumentException(INVALID_LENGTH);
