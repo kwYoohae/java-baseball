@@ -20,7 +20,7 @@ public class BaseballGame {
     public int compareNumbers() {
         int strike = 0;
         int ball = 0;
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < GameManager.NUMBER_LENGTH; i++) {
             if (Objects.equals(computerNumbers.get(i), userNumbers.get(i)))
                 strike++;
             else if (computerNumbers.contains(userNumbers.get(i)))

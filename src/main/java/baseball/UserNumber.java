@@ -11,7 +11,7 @@ public class UserNumber {
 
         MyException.userNumberGetException(numbers);
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < GameManager.NUMBER_LENGTH; i++) {
             char c = numbers.charAt(i);
             MyException.userNumberContainException(c, userNumbers);
             userNumbers.add(c - '0');
