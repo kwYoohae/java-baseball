@@ -28,6 +28,22 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 중복된_수_입력_예외_테스트(){
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("121"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 사용자_잘못된_값_입력_예외_테스트(){
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("ABC"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
