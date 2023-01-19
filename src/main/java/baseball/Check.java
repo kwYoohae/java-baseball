@@ -7,9 +7,9 @@ import static baseball.Random.COMPUTER_SIZE;
 
 public class Check {
     private final int ZERO = 0;
-    private List<Integer> inputArray = new ArrayList<>();
     private Input input = new Input();
     private Random random = new Random();
+    private List<Integer> inputArray = new ArrayList<>();
 
     public void check() {          //볼 스트라이크 구분
         List<Integer> computer = random.random();

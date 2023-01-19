@@ -1,6 +1,8 @@
 package baseball;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import static baseball.Random.COMPUTER_SIZE;
@@ -27,7 +29,7 @@ public class Input {
         Input.add(num / 100);
         Input.add((num % 100) / 10);
         Input.add((num % 100) % 10);
-        return Input;
+        return Collections.unmodifiableList(Input);
     }
 
     public int InputCount(int num) {     //입력 받은 정수가 몇자리인지 세는 함수
