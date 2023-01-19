@@ -3,21 +3,21 @@ package baseball;
 import java.util.ArrayList;
 import java.util.List;
 import static baseball.Random.COMPUTER_SIZE;
-import static baseball.Random.random;
 
 public class Check {
-    private static final int ZERO=0;
+    private final int ZERO=0;
     private Input input = new Input();
+    private Random random = new Random();
     private List<Integer> inputArray = new ArrayList<>();
 
-    public void check(){  //볼 스트라이크 구분
-        List<Integer> computer = random();
+    public void check(){          //볼 스트라이크 구분
+        List<Integer> computer = random.random();
         while(true){
             setInput();
             int strike = strike(computer, inputArray);  //스트라이크인 경우
             int ball = ball(computer, inputArray);      //볼인 경우
             print(strike, ball);
-            if(strike==COMPUTER_SIZE){         //다 맞춘 경우 while문 끝내기
+            if(strike==COMPUTER_SIZE){                  //다 맞춘 경우 while문 끝내기
                 break;
             }
         }

@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Random {
     public final static int COMPUTER_SIZE = 3;
-    public static List<Integer> random() {    //random 숫자 구하기
+    public List<Integer> random() {    //random 숫자 구하기
         List<Integer> computer = new ArrayList<>();
         while (computer.size() < COMPUTER_SIZE) {
             int randomNumber = Randoms.pickNumberInRange(1, 9);
