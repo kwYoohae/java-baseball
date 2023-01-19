@@ -11,7 +11,7 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 public class Input {
     private int num = 0;
 
-    public int getNum() {
+    public int GetNum() {
         return num;
     }
 
