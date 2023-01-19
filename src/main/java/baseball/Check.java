@@ -1,7 +1,7 @@
 package baseball;
 
 import java.util.List;
-import static baseball.Input.input;
+import static baseball.Input.Input;
 import static baseball.Random.COMPUTER_SIZE;
 import static baseball.Random.random;
 
@@ -9,8 +9,9 @@ public class Check {
     private static final int ZERO=0;
     public static void check(){  //볼 스트라이크 구분
         List<Integer> computer = random();
+        /*
         while(true){
-            List<Integer> Input = input();
+            List<Integer> Input = Input();
             int strike = strike(computer, Input);  //스트라이크인 경우
             int ball = ball(computer, Input);      //볼인 경우
             print(strike, ball);
@@ -18,6 +19,7 @@ public class Check {
                 break;
             }
         }
+         */
     }
 
     public static int strike(List<Integer> computer, List<Integer> input){  //스트라이크인 경우 세기
