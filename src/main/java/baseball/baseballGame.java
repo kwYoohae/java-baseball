@@ -19,12 +19,6 @@ public class baseballGame {
         regame = true;
         printer.openning();
     }
-
-    public void setRegame(boolean n)
-    {
-        this.regame = n;
-    }
-
     public void playBall()
     {
         while (regame)
