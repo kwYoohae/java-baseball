@@ -9,13 +9,15 @@ public class Reader {
     private String user;       //유저의 입력
     private int userNumber;
 
+    public int getUserNumber() {
+        return userNumber;
+    }
 
     public void inputUserNumber()           //유저의 입력을 받는 메서드
     {
         System.out.print("숫자를 입력해주세요 :");
         user = readLine();
         userNumber = Integer.parseInt(user);
-        checkBit();
     }
 
     public int inputReGame()
@@ -30,11 +32,5 @@ public class Reader {
         return userNumber;
     }
 
-    private void checkBit()     //자릿수 검증
-    {
-        if(this.userNumber / 1000 > 0 || this.userNumber < 100)
-        {
-            throw new IllegalArgumentException("Number length is too long");
-        }
-    }
+
 }

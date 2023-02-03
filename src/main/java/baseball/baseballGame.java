@@ -20,11 +20,17 @@ public class baseballGame {
         printer.openning();
     }
 
+    public void setRegame(boolean n)
+    {
+        this.regame = n;
+    }
+
     public void playBall()
     {
         while (regame)
         {
             reader.inputUserNumber();       //유저 숫자 입력
+            checkBit(reader.getUserNumber());
             referee.judgement(reader.returnUserNumber(), generator.getBallCount());      //볼카운트 판별
             printer.call(referee.getBall(), referee.getStrike());       //볼카운트 출력
             setRegame(referee.getStrike());     //재시작여부
@@ -49,5 +55,13 @@ public class baseballGame {
             generator.makeNumber();
         }
         else if(n==noReGame) this.regame = false;
+    }
+
+    private void checkBit(int userNumber)     //자릿수 검증
+    {
+        if(userNumber / 1000 > 0 || userNumber < 100)
+        {
+            throw new IllegalArgumentException("Number length is too long");
+        }
     }
 }
