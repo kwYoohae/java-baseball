@@ -43,11 +43,11 @@ public class numberBaseball {
 
     private void reGameUserInput(int n)
     {
-        if(n == 1)
+        if(n == goReGame)
         {
             this.regame = true;
             generator.makeNumber();
         }
-        else if(n==2) this.regame = false;
+        else if(n==noReGame) this.regame = false;
     }
 }
