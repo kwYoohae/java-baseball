@@ -1,6 +1,6 @@
 package baseball;
 
-public class numberBaseball {
+public class baseballGame {
     public static final int goReGame = 1;
     public static final int noReGame = 2;
     public static final int BIT = 3;
@@ -10,7 +10,7 @@ public class numberBaseball {
     private Printer printer;            //출력
     private boolean regame;             //게임 재시작
 
-    numberBaseball()
+    baseballGame()
     {
         generator = new Generator();    //숫자 만들어짐
         reader = new Reader();
