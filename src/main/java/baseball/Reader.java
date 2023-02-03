@@ -2,6 +2,9 @@ package baseball;
 
 import java.util.Scanner;
 
+import static baseball.numberBaseball.goReGame;
+import static baseball.numberBaseball.noReGame;
+
 public class Reader {
     private Scanner scanner;        //user input scanner 유저 입력 scanner
     private int user;       //유저의 입력
@@ -20,7 +23,7 @@ public class Reader {
 
     public int inputReGame()
     {
-        System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+        System.out.println("게임을 새로 시작하려면 " + goReGame + " , 종료하려면 " + noReGame + "를 입력하세요.");
         user = scanner.nextInt();
         return user;
     }
