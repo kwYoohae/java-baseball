@@ -1,5 +1,7 @@
 package baseball;
 
+import static baseball.numberBaseball.BIT;
+
 public class Printer {
 
     public void openning()
@@ -11,13 +13,13 @@ public class Printer {
         if(ball != 0)  System.out.print(ball+"볼 ");
         if(strike != 0) System.out.print(strike+"스트라이크");
         if(strike == 0 && ball == 0) System.out.print("낫싱");
-        if(strike == 3)  strikeout();
+        if(strike == BIT)  strikeout();
         System.out.println();
     }
 
     private void strikeout()
     {
-        System.out.println("3스트라이크");
-        System.out.print("3개의 숫자를 모두 맞히셨습니다! 게임종료");
+        System.out.println(BIT + "스트라이크");
+        System.out.print(BIT + "개의 숫자를 모두 맞히셨습니다! 게임종료");
     }
 }
