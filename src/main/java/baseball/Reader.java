@@ -1,7 +1,7 @@
 package baseball;
 
-import static baseball.numberBaseball.goReGame;
-import static baseball.numberBaseball.noReGame;
+import static baseball.baseballGame.goReGame;
+import static baseball.baseballGame.noReGame;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class Reader {
@@ -32,7 +32,7 @@ public class Reader {
 
     private void checkBit()     //자릿수 검증
     {
-        if(this.userNumber / 1000 > 0)
+        if(this.userNumber / 1000 > 0 || this.userNumber < 100)
         {
             throw new IllegalArgumentException("Number length is too long");
         }
