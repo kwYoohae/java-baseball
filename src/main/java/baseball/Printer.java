@@ -1,6 +1,6 @@
 package baseball;
 
-import static baseball.numberBaseball.BIT;
+import static baseball.baseballGame.BIT;
 
 public class Printer {
 
@@ -21,5 +21,10 @@ public class Printer {
     {
         System.out.println(BIT + "스트라이크");
         System.out.print(BIT + "개의 숫자를 모두 맞히셨습니다! 게임종료");
+    }
+
+    public void end()       //게임종료
+    {
+        System.out.println("게임 종료");
     }
 }

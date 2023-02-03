@@ -25,12 +25,12 @@ public class numberBaseball {
         while (regame)
         {
             reader.inputUserNumber();       //유저 숫자 입력
-            referee.judgement(reader.returnUserInput(), generator.getBallCount());      //볼카운트 판별
+            referee.judgement(reader.returnUserNumber(), generator.getBallCount());      //볼카운트 판별
             printer.call(referee.getBall(), referee.getStrike());       //볼카운트 출력
             setRegame(referee.getStrike());     //재시작여부
             referee.empty();        //유저입력 초기화
         }
-        System.out.println("게임 종료");
+       printer.end();
     }
 
     private void setRegame(int s)
