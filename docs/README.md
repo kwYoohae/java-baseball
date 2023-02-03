@@ -25,7 +25,6 @@
 - [x] 의미없는 공백
 - [x] 접근제한자
 - [x] 상수 사용
-- [] 변수 사용전 선언
-- [] Collection
 - [x] readLine 사용
+- [x] 출력은 Reader 만
 
