@@ -27,4 +27,5 @@
 - [x] 상수 사용
 - [] 변수 사용전 선언
 - [] Collection
+- [x] readLine 사용
 
