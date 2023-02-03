@@ -1,6 +1,9 @@
 package baseball;
 
 public class numberBaseball {
+    public static final int goReGame = 1;
+    public static final int noReGame = 2;
+    public static final int BIT = 3;
     private Generator generator;        //숫자 생성
     private Reader reader;              //사용자 입력
     private Referee referee;            //볼카운트 판별
@@ -11,7 +14,7 @@ public class numberBaseball {
     {
         generator = new Generator();    //숫자 만들어짐
         reader = new Reader();
-        referee = new Referee();
+        referee = new Referee(BIT);
         printer = new Printer();
         regame = true;
         printer.openning();
@@ -32,7 +35,7 @@ public class numberBaseball {
 
     private void setRegame(int s)
     {
-        if(s == 3)      //3스트라이크 일 경우
+        if(s == BIT)      //3스트라이크 일 경우
         {
             reGameUserInput(reader.inputReGame());  //다시할껀지 입력받음
         }
