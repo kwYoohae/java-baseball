@@ -18,7 +18,7 @@ public class Generator {
         this.ballCount = n;
     }
 
-    Generator()
+    public Generator()
     {
         ballCount = new ArrayList<>();
         makeNumber();

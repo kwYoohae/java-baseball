@@ -8,7 +8,7 @@ public class Referee {
     private int ball;
     private List<Integer> userCount;        //유저의 입력 카운트
 
-    Referee()
+    public Referee()
     {
         strike = 0;
         ball = 0;

@@ -6,7 +6,7 @@ public class Reader {
     private Scanner scanner;        //user input scanner 유저 입력 scanner
     private int user;       //유저의 입력
 
-    Reader()
+    public Reader()
     {
         scanner = new Scanner(System.in);   //user input    스캐너생성
     }
